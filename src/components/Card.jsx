@@ -1,18 +1,21 @@
-export default function Card({ project }) {
+export default function Card({ project, setProject }) {
 
     return (
         <div
-            className="relative transition-all bg-slate-300 aspect-video max-h-80 rounded-lg"
+            onClick={() => setProject(project)}
+            className="relative transition-all bg-gray-900 h-full aspect-video cursor-pointer rounded-2xl shadow-2xl"
         >
             <img
-                className='object-cover absolute rounded-lg'
-                src=''
+                className='object-contain absolute h-full'
+                src={project.images[0]}
                 alt=""
             />
             <div
-                className="absolute transition-all h-full w-full opacity-100 bg-black
-                hover:opacity-0"
-            ></div>
+                className="absolute group flex items-center justify-center transition-all duration-300 h-full w-full bg-opacity-0 bg-black text-3xl
+                hover:bg-opacity-80 hover:rounded-lg"
+            >
+                <h1 className="transition-all scale-0 group-hover:scale-100">{project.title}</h1>
+            </div>
         </div>
     )
 }

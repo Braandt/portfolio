@@ -1,110 +1,114 @@
 [
     {
         "id": 1,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
+        "title": "Inclua - Recursos Educacionais",
+        "subtitle": "Institutional webpage",
+        "description": "Webpage for a company commited to developing innovative products and solutions in the Universal Design methodology, with the aim of promoting inclusive learning for people with or without disabilities",
+        "link": "https://inclua-webpage.vercel.app/",
+        "technologies": [
+            "html",
+            "css",
+            "javascript",
+            "react",
+            "tailwind"
+        ],
+        "images": [
+            "./images/inclua/screen1.png",
+            "./images/inclua/screen2.png",
+            "./images/inclua/screen3.png",
+            "./images/inclua/screen4.png",
+            "./images/inclua/screen5.png"
+        ]
     },
     {
         "id": 2,
-        "name": "Project 1",
+        "title": "SpaceX Clone",
+        "subtitle": "Clone of the SpaceX website",
         "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
+        "link": "https://braandt.github.io/SpaceX-Clone/dragon.html",
+        "technologies": [
+            "html",
+            "css",
+            "javascript"
+        ],
+        "images": [
+            "./images/spacex/screen1.png",
+            "./images/spacex/screen2.png",
+            "./images/spacex/screen3.png",
+            "./images/spacex/screen4.png"
+        ]
     },
     {
         "id": 3,
-        "name": "Project 1",
+        "title": "Etable",
+        "subtitle": "Interactive 3D Model",
         "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
+        "link": "https://braandt.github.io/e-table/dist/",
+        "technologies": [
+            "javascript",
+            "react",
+            "threejs"
+        ],
+        "images": [
+            "./images/etable/screen1.png",
+            "./images/etable/screen2.png",
+            "./images/etable/screen3.png"
+        ]
     },
     {
         "id": 4,
-        "name": "Project 1",
+        "title": "Marble Race",
+        "subtitle": "3D Minigame",
         "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
+        "link": "https://marble-game-gamma.vercel.app/",
+        "technologies": [
+            "javascript",
+            "react",
+            "threejs"
+        ],
+        "images": [
+            "./images/marblerace/screen1.png",
+            "./images/marblerace/screen2.png",
+            "./images/marblerace/screen3.png",
+            "./images/marblerace/screen4.png"
+        ]
     },
     {
         "id": 5,
-        "name": "Project 1",
+        "title": "Space Trip",
+        "subtitle": "Fictional Space Trip Agency",
         "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
+        "link": "https://space-trip.vercel.app/",
+        "technologies": [
+            "javascript",
+            "react",
+            "tailwind",
+            "next"
+        ],
+        "images": [
+            "./images/spacetrip/screen1.png",
+            "./images/spacetrip/screen2.png",
+            "./images/spacetrip/screen3.png",
+            "./images/spacetrip/screen4.png",
+            "./images/spacetrip/screen5.png",
+            "./images/spacetrip/screen6.png"
+        ]
     },
     {
         "id": 6,
-        "name": "Project 1",
+        "title": "This Site",
+        "subtitle": "Personal portfolio",
         "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 7,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 8,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 9,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 10,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 11,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 12,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 13,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 14,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 15,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 16,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 17,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
-    },
-    {
-        "id": 18,
-        "name": "Project 1",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "photo": "./images/bode.jpg"
+        "link": "#",
+        "technologies": [
+            "javascript",
+            "react",
+            "tailwind",
+            "next"
+        ],
+        "images": [
+            "./images/portfolio/screen1.png",
+            "./images/portfolio/screen2.png"
+        ]
     }
 ]

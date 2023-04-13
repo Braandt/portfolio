@@ -9,6 +9,9 @@ module.exports = {
         'rubik': ['var(--font-rubik)'],
         'alef': ['var(--font-alef)'],
         'fira': ['var(--font-fira)']
+      },
+      screens: {
+        'md': '1024px'
       }
     },
   },
