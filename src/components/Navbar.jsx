@@ -13,7 +13,7 @@ export default function Navbar({ router, links }) {
     return (
         <div className='relative z-10'>
             <nav
-                className='absolute top-0 left-0 w-full p-4 flex justify-between items-center font-alef uppercase
+                className='absolute top-0 left-0 w-full p-4 flex justify-between items-center font-rubik uppercase
                 sm:pt-6 sm:text-sm
                 md:p-12 md:text-xl md:items-center'
             >

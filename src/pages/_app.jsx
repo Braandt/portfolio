@@ -18,7 +18,7 @@ const alef = Alef({
 })
 const fira = Fira_Sans({
 	subsets: ['latin'],
-	weight: '400',
+	weight: ['200', '400', '700'],
 	variable: '--font-fira'
 })
 
@@ -66,12 +66,14 @@ export default function App({ Component, pageProps, router }) {
 			</Head>
 			<div
 				className={`${rubik.variable} ${alef.variable} ${fira.variable}
-			absolute top-0 bottom-0 left-0 right-0 p-6 text-white font-fira bg-blue-800
+			absolute top-0 bottom-0 left-0 right-0 p-4 text-white font-fira font-light bg-blue-800
+			sm:p-6
 			md:p-12`}
 			>
 				<div
-					className='h-full w-full flex flex-col outline outline-4 rounded-xl  shadow-2xl
-				md:outline-8'
+					className='h-full w-full flex flex-col outline outline-2 rounded-xl  shadow-2xl
+					sm:outline-4
+					md:outline-8'
 				>
 					<Navbar router={router} links={links} />
 					<AnimatePresence>

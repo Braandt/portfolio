@@ -38,7 +38,8 @@ export default function Contact() {
                         >
                             <button
                                 id={item.label}
-                                className='flex justify-center w-80 bg-white text-blue-800 py-2 text-3xl rounded-full shadow-2xl'
+                                className='flex justify-center w-56 bg-white text-blue-800 py-2 text-lg rounded-full  font-normal font-rubik shadow-2xl
+                                sm:w-80 sm:text-3xl'
                                 onMouseEnter={e => handleHover(e)}
                                 onMouseLeave={() => setIcon()}
                             >

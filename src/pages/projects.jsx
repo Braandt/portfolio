@@ -9,40 +9,55 @@ export default function Projects() {
     const gallery = useRef()
 
     const [activeProject, setActiveProject] = useState({})
-    const [pos, setPos] = useState({ x: 0, y: 0 })
+    const [galleryPos, setGalleryPos] = useState(0)
 
     useEffect(() => {
-        if (innerWidth > 1024) {
-            const handleMouseMove = (event) => {
 
-                const mouseX = event.clientX / innerWidth
-                const mouseY = event.clientY / innerHeight
+        // if (innerWidth > 1024) {
+        //     gallery.current.onmousemove = (event) => {
 
-                const posx = gallery.current && (mouseX * 1.2 - 0.1) * (- gallery.current.offsetWidth + gallery.current.parentElement.offsetWidth)
+        //         const mouseX = event.clientX / innerWidth
+        //         const mouseY = event.clientY / innerHeight
 
-                setPos({ x: posx, y: - mouseY })
-            }
+        //         const posx = gallery.current && (mouseX * 1.2 - 0.1) * (- gallery.current.offsetWidth + gallery.current.parentElement.offsetWidth)
 
-            setTimeout(() => {
-                window.addEventListener('mousemove', handleMouseMove)
-            }, 1000)
+        //         gallery.current.scrollLeft = posx
 
-            return () => {
-                window.removeEventListener('mousemove', handleMouseMove)
-            }
+        //         // gallery.current.animate({
+        //         //     transform: `translateX(${posx}px)`
+        //         // }, {
+        //         //     duration: 24000,
+        //         //     fill: 'forwards',
+        //         //     easing: 'ease-out'
+        //         // })
+        //     }
+        // } else {
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        gallery.current.onmousedown = (e) => {
+            isDown = true
+            startX = e.pageX - gallery.current.offsetLeft
+            scrollLeft = gallery.current.scrollLeft
         }
+        gallery.current.onmouseleave = () => {
+            isDown = false
+        }
+        gallery.current.onmouseup = () => {
+            isDown = false
+        }
+        gallery.current.onmousemove = (e) => {
+            if (!isDown) return
+            const x = e.pageX - gallery.current.offsetLeft
+            const walk = (x - startX) * 3; //scroll-fast
+            gallery.current.scrollLeft = scrollLeft - walk
+        }
+        // }
+
 
     }, [])
-
-    !activeProject.id && gallery.current && (
-        gallery.current.animate({
-            transform: `translateX(${pos.x}px)`
-        }, {
-            duration: 3000,
-            fill: 'forwards',
-            easing: 'ease-out'
-        })
-    )
 
     return (
         <div className="h-full">
@@ -52,11 +67,15 @@ export default function Projects() {
                     animate={{ x: '0' }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     exit={{ opacity: 0 }}
-                    className="absolute flex top-40 h-[85%] left-0"
+                    className="absolute flex top-16 h-[90%] left-0 w-full select-none
+                    sm:h-[75%] sm:top-24
+                    md:h-[95%] md:top-32"
                 >
                     <div
                         ref={gallery}
-                        className='flex gap-12 px-4 h-full'
+                        className='grid gap-12 p-4 h-full cursor-grab overflow-x-scroll
+                        sm:flex
+                        active:cursor-grabbing'
                     >
                         {projects.map(project => (
                             <Card key={project.id} project={project} setProject={setActiveProject} />
