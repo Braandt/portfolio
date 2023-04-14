@@ -3,10 +3,10 @@ export default function Card({ project, setProject }) {
     return (
         <div
             onClick={() => setProject(project)}
-            className="relative transition-all bg-gray-900 h-full aspect-video cursor-pointer rounded-2xl shadow-2xl"
+            className="relative transition-all bg-gray-900/50 h-full aspect-video cursor-pointer rounded-2xl shadow-2xl"
         >
             <img
-                className='object-contain absolute h-full'
+                className='object-contain absolute h-full w-full'
                 src={project.images[0]}
                 alt=""
             />

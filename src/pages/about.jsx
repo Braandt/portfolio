@@ -27,14 +27,14 @@ export default function About() {
 
                     My name is Leonardo Brandt, and I am a frontend developer with a passion for creating beautiful and functional websites. I specialize in writing clean, organized, and efficient code, and I am always looking for new ways to improve my skills and stay up-to-date with the latest technologies. <br />
 
-                    I'm also passionate about cooking 🍳, sports 🏃 and playing guitar 🎸. I find these hobbies bring a sense of joy and creativity into my life.  <br />
+                    I&aposm also passionate about cooking 🍳, sports 🏃 and playing guitar 🎸. I find these hobbies bring a sense of joy and creativity into my life.  <br />
 
                     Thank you for taking the time to get to know me 🤓. <br />
                     <Link
                         href={'/contact'}
                         className='mix-blend-difference bg-white'
                     >
-                        <span className='mix-blend-difference'>Let's talk</span>
+                        <span className='mix-blend-difference'>Let&aposs talk</span>
                     </Link>
                     <span> </span>
                     and make a positive impact in the world 🌍.

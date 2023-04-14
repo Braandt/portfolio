@@ -9,26 +9,29 @@ export default function Projects() {
     const gallery = useRef()
 
     const [activeProject, setActiveProject] = useState({})
-    const [pos, setPos] = useState({})
+    const [pos, setPos] = useState({ x: 0, y: 0 })
 
     useEffect(() => {
-        const handleMouseMove = (event) => {
+        if (innerWidth > 1024) {
+            const handleMouseMove = (event) => {
 
-            const mouseX = event.clientX / innerWidth
-            const mouseY = event.clientY / innerHeight
+                const mouseX = event.clientX / innerWidth
+                const mouseY = event.clientY / innerHeight
 
-            const posx = gallery.current && (mouseX * 1.2 - 0.1) * (- gallery.current.offsetWidth + gallery.current.parentElement.offsetWidth)
+                const posx = gallery.current && (mouseX * 1.2 - 0.1) * (- gallery.current.offsetWidth + gallery.current.parentElement.offsetWidth)
 
-            setPos({ x: posx, y: - mouseY })
+                setPos({ x: posx, y: - mouseY })
+            }
+
+            setTimeout(() => {
+                window.addEventListener('mousemove', handleMouseMove)
+            }, 1000)
+
+            return () => {
+                window.removeEventListener('mousemove', handleMouseMove)
+            }
         }
 
-        setTimeout(() => {
-            window.addEventListener('mousemove', handleMouseMove)
-        }, 1000)
-
-        return () => {
-            window.removeEventListener('mousemove', handleMouseMove)
-        }
     }, [])
 
     !activeProject.id && gallery.current && (
@@ -43,15 +46,18 @@ export default function Projects() {
 
     return (
         <div className="h-full">
-            <div className="relative h-full overflow-hidden">
+            <div className="relative h-full overflow-y-hidden">
                 <m.div
                     initial={{ x: '100%' }}
                     animate={{ x: '0' }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     exit={{ opacity: 0 }}
-                    className="absolute flex top-40 h-[85%] left-0 w-full"
+                    className="absolute flex top-40 h-[85%] left-0"
                 >
-                    <div ref={gallery} className='flex gap-12 px-4 h-full'>
+                    <div
+                        ref={gallery}
+                        className='flex gap-12 px-4 h-full'
+                    >
                         {projects.map(project => (
                             <Card key={project.id} project={project} setProject={setActiveProject} />
                         ))}
