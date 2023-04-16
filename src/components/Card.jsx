@@ -3,13 +3,11 @@ import Image from "next/image";
 export default function Card({ project, setProject }) {
 
     return (
-        <div
+        <button
             onClick={() => setProject(project)}
-            onKeyDown={(e) => e.key == 'Enter' && setProject(project)}
-            className="relative flex items-center transition-all p-2 bg-gray-950 h-full aspect-video cursor-pointer rounded-lg shadow-2xl group
+            className="relative flex items-center transition-all p-2 bg-gray-950 h-full aspect-video rounded-lg shadow-2xl group
             hover:p-6
             sm:p-4 sm:rounded-2xl"
-            tabIndex={1}
         >
             <Image
                 width={2048}
@@ -24,6 +22,6 @@ export default function Card({ project, setProject }) {
             >
                 <h1 className="transition-all scale-0 font-bold font-rubik group-hover:scale-100">{project.title}</h1>
             </div>
-        </div>
+        </button>
     )
 }
