@@ -1,14 +1,20 @@
+import Image from "next/image";
+
 export default function Card({ project, setProject }) {
 
     return (
         <div
             onClick={() => setProject(project)}
+            onKeyDown={(e) => e.key == 'Enter' && setProject(project)}
             className="relative flex items-center transition-all p-2 bg-gray-950 h-full aspect-video cursor-pointer rounded-lg shadow-2xl group
             hover:p-6
             sm:p-4 sm:rounded-2xl"
+            tabIndex={1}
         >
-            <img
-                className='object-contain w-full sm:rounded-lg group-hover:blur-sm'
+            <Image
+                width={2048}
+                height={2048}
+                className='object-contain h-full w-full sm:rounded-lg group-hover:blur-sm'
                 src={project.images[0]}
                 alt=""
             />

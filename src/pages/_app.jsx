@@ -67,7 +67,7 @@ export default function App({ Component, pageProps, router }) {
 			</Head>
 			<div
 				className={`${rubik.variable} ${alef.variable} ${fira.variable}
-			absolute top-0 bottom-0 left-0 right-0 p-4 text-white font-fira font-light bg-gray-900
+			absolute top-0 bottom-0 left-0 right-0 p-4 text-white font-fira font-light bg-gray-900 selection:bg-green-600
 			sm:p-6
 			md:p-9`}
 			>

@@ -4,6 +4,7 @@ import { TbBrandNextjs, TbBrandThreejs } from 'react-icons/tb'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 import { motion as m } from 'framer-motion'
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 
 export default function ActiveProject({ project, setProject }) {
@@ -74,30 +75,32 @@ export default function ActiveProject({ project, setProject }) {
                     >
                         <div className="relative flex w-full h-full items-center justify-center">
                             {images.map((image, index) => (
-                                <img
+                                <Image
                                     key={image}
                                     src={image}
                                     alt=""
-                                    className={`absolute rounded-lg max-w-full max-h-full object-contain select-none transition-all duration-200 shadow-xl
+                                    width={2048}
+                                    height={2048}
+                                    className={`absolute rounded-lg w-fit max-w-full max-h-full object-contain select-none transition-all duration-200 shadow-xl
                                     ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}
                                 />
                             ))}
                         </div>
 
-                        <div
+                        <button
                             className="absolute flex items-center aspect-square bg-white/10 backdrop-blur-md text-blue-800 rounded-full shadow-xl ml-3 h-8 cursor-pointer p-1
                             sm:h-10"
                             onClick={prevSlide}
                         >
                             <ChevronLeftIcon className="h-full" />
-                        </div>
-                        <div
+                        </button>
+                        <button
                             className="absolute flex items-center aspect-square bg-white/10 backdrop-blur-md text-blue-800 rounded-full right-0 text-lg shadow-xl mr-3 h-8 cursor-pointer p-1
                             sm:h-10"
                             onClick={nextSlide}
                         >
                             <ChevronRightIcon className="h-full" />
-                        </div>
+                        </button>
                     </div>
                 </div>
 

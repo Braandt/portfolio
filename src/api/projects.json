@@ -13,11 +13,11 @@
             "tailwind"
         ],
         "images": [
-            "./images/inclua/screen1.png",
-            "./images/inclua/screen2.png",
-            "./images/inclua/screen3.png",
-            "./images/inclua/screen4.png",
-            "./images/inclua/screen5.png"
+            "/images/inclua/screen1.png",
+            "/images/inclua/screen2.png",
+            "/images/inclua/screen3.png",
+            "/images/inclua/screen4.png",
+            "/images/inclua/screen5.png"
         ]
     },
     {
@@ -32,10 +32,10 @@
             "javascript"
         ],
         "images": [
-            "./images/spacex/screen1.png",
-            "./images/spacex/screen2.png",
-            "./images/spacex/screen3.png",
-            "./images/spacex/screen4.png"
+            "/images/spacex/screen1.png",
+            "/images/spacex/screen2.png",
+            "/images/spacex/screen3.png",
+            "/images/spacex/screen4.png"
         ]
     },
     {
@@ -50,9 +50,9 @@
             "threejs"
         ],
         "images": [
-            "./images/etable/screen1.png",
-            "./images/etable/screen2.png",
-            "./images/etable/screen3.png"
+            "/images/etable/screen1.png",
+            "/images/etable/screen2.png",
+            "/images/etable/screen3.png"
         ]
     },
     {
@@ -67,10 +67,10 @@
             "threejs"
         ],
         "images": [
-            "./images/marblerace/screen1.png",
-            "./images/marblerace/screen2.png",
-            "./images/marblerace/screen3.png",
-            "./images/marblerace/screen4.png"
+            "/images/marblerace/screen1.png",
+            "/images/marblerace/screen2.png",
+            "/images/marblerace/screen3.png",
+            "/images/marblerace/screen4.png"
         ]
     },
     {
@@ -86,12 +86,12 @@
             "next"
         ],
         "images": [
-            "./images/spacetrip/screen1.png",
-            "./images/spacetrip/screen2.png",
-            "./images/spacetrip/screen3.png",
-            "./images/spacetrip/screen4.png",
-            "./images/spacetrip/screen5.png",
-            "./images/spacetrip/screen6.png"
+            "/images/spacetrip/screen1.png",
+            "/images/spacetrip/screen2.png",
+            "/images/spacetrip/screen3.png",
+            "/images/spacetrip/screen4.png",
+            "/images/spacetrip/screen5.png",
+            "/images/spacetrip/screen6.png"
         ]
     },
     {
@@ -107,10 +107,10 @@
             "next"
         ],
         "images": [
-            "./images/portfolio/screen1.png",
-            "./images/portfolio/screen2.png",
-            "./images/portfolio/screen3.png",
-            "./images/portfolio/screen4.png"
+            "/images/portfolio/screen1.png",
+            "/images/portfolio/screen2.png",
+            "/images/portfolio/screen3.png",
+            "/images/portfolio/screen4.png"
         ]
     }
 ]

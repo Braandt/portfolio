@@ -1,12 +1,12 @@
 import { motion as m } from 'framer-motion'
 import { useState } from 'react'
-import { FaEnvelope, FaFile, FaGithub, FaLinkedin, FaPage4 } from 'react-icons/fa'
+import { FaEnvelope, FaFile, FaGithub, FaLinkedin } from 'react-icons/fa'
 
 export default function Contact() {
 
     const [icon, setIcon] = useState()
 
-    const iconClasses = 'absolute w-full h-4/5 text-orange-500'
+    const iconClasses = 'absolute w-full h-4/5 text-green-500'
 
     const items = [
         { path: 'mailto: leoobrandt@hotmail.com', label: 'Email', icon: <FaEnvelope className={iconClasses} /> },
@@ -29,24 +29,24 @@ export default function Contact() {
         >
             <div className='relative flex items-center justify-center w-4/5 h-4/5 mt-24'>
                 {icon}
-                <div className='absolute flex flex-col items-center gap-6 pointer-events-none hover:'>
+                <div className='absolute flex flex-col items-center gap-6'>
                     {items.map(item => (
                         <a
+                            id={item.label}
                             href={item.path}
                             key={item.label}
                             target='_blank'
-                            className='pointer-events-auto'
+                            className='flex justify-center w-56 bg-white text-gray-800 py-2 text-lg rounded-full  font-normal font-rubik shadow-2xl outline outline-0 outline-white transition-all backdrop-blur-lg
+                            hover:outline-4 hover:bg-transparent hover:text-white
+                            focus:outline-4 focus:bg-transparent focus:text-white
+                            sm:w-80 sm:text-3xl'
+                            onMouseEnter={e => handleHover(e)}
+                            onFocus={e => handleHover(e)}
+                            onMouseLeave={() => setIcon()}
+                            onBlur={() => setIcon()}
+                            tabIndex={1} // 
                         >
-                            <button
-                                id={item.label}
-                                className='flex justify-center w-56 bg-white text-gray-800 py-2 text-lg rounded-full  font-normal font-rubik shadow-2xl outline outline-0 outline-white transition-all
-                                hover:outline-4 hover:bg-transparent hover:text-white hover:backdrop-blur-lg
-                                sm:w-80 sm:text-3xl'
-                                onMouseEnter={e => handleHover(e)}
-                                onMouseLeave={() => setIcon()}
-                            >
-                                {item.label}
-                            </button>
+                            {item.label}
                         </a>
                     ))}
                 </div>

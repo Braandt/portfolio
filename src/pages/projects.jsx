@@ -13,49 +13,6 @@ export default function Projects() {
 
     useEffect(() => {
 
-        // if (innerWidth > 1024) {
-        //     gallery.current.onmousemove = (event) => {
-
-        //         const mouseX = event.clientX / innerWidth
-        //         const mouseY = event.clientY / innerHeight
-
-        //         const posx = gallery.current && (mouseX * 1.2 - 0.1) * (- gallery.current.offsetWidth + gallery.current.parentElement.offsetWidth)
-
-        //         gallery.current.scrollLeft = posx
-
-        //         // gallery.current.animate({
-        //         //     transform: `translateX(${posx}px)`
-        //         // }, {
-        //         //     duration: 24000,
-        //         //     fill: 'forwards',
-        //         //     easing: 'ease-out'
-        //         // })
-        //     }
-        // } else {
-
-        // let isDown = false;
-        // let startX;
-        // let scrollLeft;
-
-        // gallery.current.onmousedown = (e) => {
-        //     isDown = true
-        //     startX = e.pageX - gallery.current.offsetLeft
-        //     scrollLeft = gallery.current.scrollLeft
-        // }
-        // gallery.current.onmouseleave = () => {
-        //     isDown = false
-        // }
-        // gallery.current.onmouseup = () => {
-        //     isDown = false
-        // }
-        // gallery.current.onmousemove = (e) => {
-        //     if (!isDown) return
-        //     const x = e.pageX - gallery.current.offsetLeft
-        //     const walk = (x - startX) * 3; //scroll-fast
-        //     gallery.current.scrollLeft = scrollLeft - walk
-        // }
-        // }
-
         const gal = gallery.current
         const parent = gal.parentElement
         let animationId = null
@@ -75,9 +32,6 @@ export default function Projects() {
                     animationId = requestAnimationFrame(update)
                 }
             })
-
-            // parent.scrollTo({ left: pan, behavior: 'smooth' })
-            // console.log(parent.scrollLeft, pan);
         }
 
 
@@ -93,7 +47,8 @@ export default function Projects() {
                     exit={{ opacity: 0 }}
                     className="absolute flex top-16 h-[90%] left-0 w-full select-none overflow-x-scroll
                     sm:h-[75%] sm:top-24
-                    md:h-[95%] md:top-32"
+                    md:h-[80%] md:top-32"
+                    tabIndex={1}
                 >
                     <div
                         ref={gallery}

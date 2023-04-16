@@ -1,4 +1,5 @@
 import { motion as m } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function About() {
@@ -25,11 +26,13 @@ export default function About() {
                 md:flex-row md:gap-12"
             >
 
-                <img
-                    className="h-1/4 object-cover rounded-full shadow-2xl
-                    sm:rounded-2xl sm:h-1/3
+                <Image
+                    width={0}
+                    height={0}
+                    className="w-auto h-1/4 object-cover rounded-full shadow-2xl
+                    sm:rounded-2xl sm:w-auto sm:h-1/3
                     md:max-w-[40%] md:h-5/6"
-                    src="./images/me2.jpg"
+                    src="/images/me2.jpg"
                     alt=""
                 />
 
