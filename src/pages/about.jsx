@@ -27,8 +27,8 @@ export default function About() {
             >
 
                 <Image
-                    width={0}
-                    height={0}
+                    width={2048}
+                    height={2048}
                     className="w-auto h-1/4 object-cover rounded-full shadow-2xl
                     sm:rounded-2xl sm:w-auto sm:h-1/3
                     md:max-w-[40%] md:h-5/6"
