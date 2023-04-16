@@ -40,7 +40,7 @@ export default function Navbar({ router, links }) {
                             <li
                                 className={`rounded-full px-4 py-1 outline-3 transition-all duration-75
                             hover:outline hover:shadow-xl 
-                            ${currentPage === link.path && 'shadow-xl shadow-blue-900/70 bg-white/10'}`}
+                            ${currentPage === link.path && 'shadow-xl bg-gray-800'}`}
                             >{link.label}</li>
                         </Link>
                     ))}

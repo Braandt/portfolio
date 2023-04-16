@@ -10,7 +10,7 @@ export default function Home() {
 				animate={{ opacity: 1, top: true }}
 				transition={{ duration: 0.75, ease: 'easeOut' }}
 				exit={{ opacity: 0 }}
-				className='absolute top-0 left-0 w-full h-full p-12 flex flex-col
+				className='absolute top-0 left-0 w-full h-full p-12 flex flex-col cursor-default
 				md:p-24
 				'
 			>
@@ -19,7 +19,7 @@ export default function Home() {
 					sm:justify-end'
 				>
 					<h1
-						className='font-rubik uppercase text-center tracking-[20px] leading-loose text-xl whitespace-nowrap -mr-4
+						className='font-rubik uppercase text-center tracking-[20px] leading-loose text-sm whitespace-nowrap -mr-4
 						sm:text-right sm:text-5xl
 						md:text-8xl'
 					>

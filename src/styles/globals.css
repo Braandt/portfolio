@@ -28,4 +28,5 @@ html {
 
 ::selection {
     background-color: tomato;
+    color: black
 }

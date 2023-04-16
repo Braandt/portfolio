@@ -61,12 +61,12 @@ export default function ActiveProject({ project, setProject }) {
                 exit={{ opacity: 0 }}
                 onKeyDown={(e) => e.key === 'Escape' && setProject({})}
                 onClick={handleClick}
-                className="absolute top-0 left-0 bottom-0 right-0 bg-black/70 p-3 flex flex-col-reverse gap-3 z-20 select-none
+                className="absolute top-0 left-0 bottom-0 right-0 bg-black/70 p-3 flex flex-col gap-3 z-20 select-none
                 md:p-16 md:flex-row md:gap-12"
                 tabIndex={0}
             >
                 <div
-                    className="h-full bg-white/50 rounded-xl p-3 backdrop-blur-xl
+                    className="h-full min-h-[200px] bg-white/50 rounded-xl p-3 backdrop-blur-xl
                     md:w-3/5 md:rounded-3xl md:p-6"
                 >
                     <div
@@ -107,7 +107,7 @@ export default function ActiveProject({ project, setProject }) {
                 >
                     <h1 className="font-rubik text-2xl font-semibold max-w-md">{project.title}</h1>
                     <h2 className="text-lg pb-6">{project.subtitle}</h2>
-                    <p>{project.description}</p>
+                    <p className="whitespace-pre-line mb-3">{project.description}</p>
                     <div className="flex flex-col flex-1 justify-end">
                         <div
                             className="flex justify-center gap-3 text-lg
@@ -123,7 +123,7 @@ export default function ActiveProject({ project, setProject }) {
                             href={project.link}
                             target="_blank"
                         >
-                            VIEW LIVE
+                            OPEN 🌐
                         </a>
                     </div>
 

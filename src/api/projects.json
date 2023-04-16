@@ -24,8 +24,8 @@
         "id": 2,
         "title": "SpaceX Clone",
         "subtitle": "Clone of the SpaceX website",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
-        "link": "https://braandt.github.io/SpaceX-Clone/dragon.html",
+        "description": "Clone of version of 2020 of the SpaceX website, multipages, responsive and just for fun and practice. \n Made this project using just html, css and plain JavaScript",
+        "link": "https://braandt.github.io/SpaceX-Clone",
         "technologies": [
             "html",
             "css",
@@ -41,8 +41,8 @@
     {
         "id": 3,
         "title": "Etable",
-        "subtitle": "Interactive 3D Model",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
+        "subtitle": "Interactive 3D Experience",
+        "description": "A work in progress of a companies innovative project. Everything was modeled in three.js.\n I'm currently working on lightning, interactivity and animations of the product",
         "link": "https://braandt.github.io/e-table/dist/",
         "technologies": [
             "javascript",
@@ -59,7 +59,7 @@
         "id": 4,
         "title": "Marble Race",
         "subtitle": "3D Minigame",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
+        "description": "Simple race game to practice react with state management, and three.js and react-three-fiber with physics and animations and performance.",
         "link": "https://marble-game-gamma.vercel.app/",
         "technologies": [
             "javascript",
@@ -77,7 +77,7 @@
         "id": 5,
         "title": "Space Trip",
         "subtitle": "Fictional Space Trip Agency",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
+        "description": "Practicing react, tailwindcss and next routing in this project. This is a website for a  fictional trip agency for spatial exploration. The design was based on a challenge of Frontend Mentor",
         "link": "https://space-trip.vercel.app/",
         "technologies": [
             "javascript",
@@ -98,7 +98,7 @@
         "id": 6,
         "title": "This Site",
         "subtitle": "Personal portfolio",
-        "description": "Project 1 is a project created by another person and will be used as a project manager",
+        "description": "This is the first personal portfolio that I made to show my work and try to get hired as a frontend developer. \n Hope you liked it so far, I keep updating it constantly and fixing ocasional bugs that appear. \n Thank you for cheking my projects and keep scrolling to get to know I little more about me 😉",
         "link": "#",
         "technologies": [
             "javascript",
@@ -108,7 +108,9 @@
         ],
         "images": [
             "./images/portfolio/screen1.png",
-            "./images/portfolio/screen2.png"
+            "./images/portfolio/screen2.png",
+            "./images/portfolio/screen3.png",
+            "./images/portfolio/screen4.png"
         ]
     }
 ]

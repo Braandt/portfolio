@@ -33,49 +33,72 @@ export default function Projects() {
         //     }
         // } else {
 
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        // let isDown = false;
+        // let startX;
+        // let scrollLeft;
 
-        gallery.current.onmousedown = (e) => {
-            isDown = true
-            startX = e.pageX - gallery.current.offsetLeft
-            scrollLeft = gallery.current.scrollLeft
-        }
-        gallery.current.onmouseleave = () => {
-            isDown = false
-        }
-        gallery.current.onmouseup = () => {
-            isDown = false
-        }
-        gallery.current.onmousemove = (e) => {
-            if (!isDown) return
-            const x = e.pageX - gallery.current.offsetLeft
-            const walk = (x - startX) * 3; //scroll-fast
-            gallery.current.scrollLeft = scrollLeft - walk
-        }
+        // gallery.current.onmousedown = (e) => {
+        //     isDown = true
+        //     startX = e.pageX - gallery.current.offsetLeft
+        //     scrollLeft = gallery.current.scrollLeft
         // }
+        // gallery.current.onmouseleave = () => {
+        //     isDown = false
+        // }
+        // gallery.current.onmouseup = () => {
+        //     isDown = false
+        // }
+        // gallery.current.onmousemove = (e) => {
+        //     if (!isDown) return
+        //     const x = e.pageX - gallery.current.offsetLeft
+        //     const walk = (x - startX) * 3; //scroll-fast
+        //     gallery.current.scrollLeft = scrollLeft - walk
+        // }
+        // }
+
+        const gal = gallery.current
+        const parent = gal.parentElement
+        let animationId = null
+        let lastScrollPos = null
+
+        parent.scrollLeft = 0
+
+        gal.onmousemove = (e) => {
+            const widthDiff = gal.offsetWidth - parent.offsetWidth
+            const pan = ((e.clientX - parent.parentElement.offsetLeft) / parent.offsetWidth) * widthDiff
+
+            cancelAnimationFrame(animationId)
+            animationId = requestAnimationFrame(function update() {
+                lastScrollPos += (pan - lastScrollPos) * 0.1
+                parent.scrollLeft = lastScrollPos
+                if (Math.abs(pan - lastScrollPos) > 0.5) {
+                    animationId = requestAnimationFrame(update)
+                }
+            })
+
+            // parent.scrollTo({ left: pan, behavior: 'smooth' })
+            // console.log(parent.scrollLeft, pan);
+        }
 
 
     }, [])
 
     return (
-        <div className="h-full">
+        <div className="h-full rounded-xl overflow-hidden">
             <div className="relative h-full overflow-y-hidden">
                 <m.div
                     initial={{ x: '100%' }}
                     animate={{ x: '0' }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     exit={{ opacity: 0 }}
-                    className="absolute flex top-16 h-[90%] left-0 w-full select-none
+                    className="absolute flex top-16 h-[90%] left-0 w-full select-none overflow-x-scroll
                     sm:h-[75%] sm:top-24
                     md:h-[95%] md:top-32"
                 >
                     <div
                         ref={gallery}
-                        className='grid gap-12 p-4 h-full cursor-grab overflow-x-scroll
-                        sm:flex
-                        active:cursor-grabbing'
+                        className='grid gap-12 p-4
+                        sm:flex sm:px-44'
                     >
                         {projects.map(project => (
                             <Card key={project.id} project={project} setProject={setActiveProject} />
