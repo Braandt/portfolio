@@ -13,13 +13,17 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.17",
+    "@react-three/drei": "^9.65.3",
+    "@react-three/fiber": "^8.12.1",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.10.0",
+    "leva": "^0.9.34",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
+    "three": "^0.151.3",
     "vercel": "^28.18.5"
   },
   "devDependencies": {

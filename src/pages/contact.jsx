@@ -6,7 +6,7 @@ export default function Contact() {
 
     const [icon, setIcon] = useState()
 
-    const iconClasses = 'absolute w-full h-4/5 text-green-500'
+    const iconClasses = 'absolute w-full h-4/5 text-orange-500'
 
     const items = [
         { path: 'mailto: leoobrandt@hotmail.com', label: 'Email', icon: <FaEnvelope className={iconClasses} /> },

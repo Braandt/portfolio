@@ -38,15 +38,14 @@ export default function App({ Component, pageProps, router }) {
 			const page = links.find((item) => (item.path === router.state.pathname))
 			const index = links.indexOf(page)
 			const direction = event.deltaY > 0 ? 1 : -1
-			console.log(event);
 
-			if (index === 0) {
-				direction === 1 && push(links[index + direction].path)
-			} else if (index === links.length - 1) {
-				direction === -1 && push(links[index + direction].path)
-			} else {
-				push(links[index + direction].path)
-			}
+			// if (index === 0) {
+			// 	direction === 1 && push(links[index + direction].path)
+			// } else if (index === links.length - 1) {
+			// 	direction === -1 && push(links[index + direction].path)
+			// } else {
+			// 	push(links[index + direction].path)
+			// }
 
 		}
 
@@ -67,7 +66,7 @@ export default function App({ Component, pageProps, router }) {
 			</Head>
 			<div
 				className={`${rubik.variable} ${alef.variable} ${fira.variable}
-			absolute top-0 bottom-0 left-0 right-0 p-4 text-white font-fira font-light bg-gray-900 selection:bg-green-600
+			absolute top-0 bottom-0 left-0 right-0 p-4 text-white font-fira font-light bg-gray-900 -z-50 selection:bg-orange-600
 			sm:p-6
 			md:p-9`}
 			>
