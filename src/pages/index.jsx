@@ -1,8 +1,16 @@
-import Galaxy from '@/components/Galaxy'
-import { Canvas } from '@react-three/fiber'
 import { motion as m } from 'framer-motion'
-import { Suspense } from 'react'
-import { FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
+import { Suspense, lazy } from 'react'
+
+const Canvas = lazy(() => import('@react-three/fiber').then(module => ({ default: module.Canvas })))
+
+const icons = ['FaCss3', 'FaHtml5', 'FaJs', 'FaReact'].map(componentName =>
+	lazy(() => import(`react-icons/fa`).then(module => ({ default: module[componentName] })))
+);
+
+const SiThreedotjs = lazy(() => import('react-icons/si').then(module => ({ default: module.SiThreedotjs })))
+const TbBrandNextjs = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbBrandNextjs })))
+
+const Galaxy = lazy(() => import('@/components/Galaxy'))
 
 export default function Home() {
 
@@ -16,13 +24,13 @@ export default function Home() {
 		>
 			<div className="relative h-full w-full">
 				<div className="absolute h-full w-full -z-10">
-					<Suspense>
+					<Suspense fallback={<LoadingGalaxy />}>
 						<Canvas
 							camera={{
 								fov: 45,
 								near: 0.1,
 								far: 50,
-								position: [0, 4, 6]
+								position: [100, 4, 4]
 							}}
 						>
 							<Galaxy />
@@ -48,17 +56,30 @@ export default function Home() {
 						</h1>
 					</div>
 					<div
-						className='flex text-lg text-right gap-10 font-alef justify-center
+						className='flex flex-wrap text-lg text-right gap-10 font-alef justify-center
 					sm:justify-end'
 					>
-						<FaHtml5 />
-						<FaCss3 />
-						<FaJs />
-						<FaReact />
+						<Suspense>
+							{icons.map((Icon, index) => (
+								<Icon key={index} />
+							))}
+							<SiThreedotjs />
+							<TbBrandNextjs />
+						</Suspense>
 					</div>
 				</div>
 
 			</div>
 		</m.div>
+	)
+}
+
+function LoadingGalaxy() {
+	return (
+		<div
+			className='absolute h-full w-full flex items-end font-bold justify-center animate-pulse pb-44
+		sm:p-24 sm:text-3xl sm:justify-start'
+		>
+			wait for it...</div>
 	)
 }

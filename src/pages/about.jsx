@@ -1,6 +1,8 @@
+import Loading from '@/components/Loading'
 import { motion as m } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export default function About() {
 
@@ -21,20 +23,28 @@ export default function About() {
             md:p-24"
         >
             <div
-                className="flex flex-col items-center gap-6 h-[95%] overflow-scroll
+                className="flex flex-col items-center gap-6 h-[95%] overflow-scroll w-full
                 sm:h-[85%]
-                md:flex-row md:gap-12"
+                md:flex-row md:gap-12 md:justify-center"
             >
-
-                <Image
-                    width={2048}
-                    height={2048}
-                    className="w-auto h-1/4 object-cover rounded-full shadow-2xl
-                    sm:rounded-2xl sm:w-auto sm:h-1/3
-                    md:max-w-[40%] md:h-5/6"
-                    src="/images/me2.jpg"
-                    alt=""
-                />
+                <div
+                    className='relative aspect-square h-1/4 min-h-[100px]
+                        sm:h-1/3 sm:w-1/4
+                        md:w-full md:h-5/6 md:aspect-auto md:max-w-[30%]'
+                >
+                    <Suspense fallback={<Loading />}>
+                        <Image
+                            fill
+                            sizes='max-w-full'
+                            className="object-cover rounded-full shadow-2xl
+                            sm:rounded-2xl "
+                            src="/images/me2.jpg"
+                            alt="Smiling kind guy"
+                            blurDataURL='/images/me2reduced.jpg'
+                            placeholder='blur'
+                        />
+                    </Suspense>
+                </div>
 
                 <p
                     className='tracking-wider text-xs leading-loose max-w-md

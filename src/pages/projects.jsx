@@ -1,15 +1,18 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { motion as m } from 'framer-motion'
-import Card from "@/components/Card";
 import projects from '@/api/projects.json'
-import ActiveProject from "@/components/ActiveProject";
+import Loading from "@/components/Loading";
+
+const ActiveProject = lazy(() => import('@/components/ActiveProject'))
+const Card = lazy(() => import('@/components/Card'))
 
 export default function Projects() {
 
     const gallery = useRef()
+    const container = useRef()
+    const activeBackground = useRef()
 
     const [activeProject, setActiveProject] = useState({})
-    const [galleryPos, setGalleryPos] = useState(0)
 
     useEffect(() => {
 
@@ -18,9 +21,7 @@ export default function Projects() {
         let animationId = null
         let lastScrollPos = null
 
-        parent.scrollLeft = 0
-
-        gal.onmousemove = (e) => {
+        container.current.onmousemove = (e) => {
             const widthDiff = gal.offsetWidth - parent.offsetWidth
             const pan = ((e.clientX - parent.parentElement.offsetLeft) / parent.offsetWidth) * widthDiff
 
@@ -34,12 +35,18 @@ export default function Projects() {
             })
         }
 
+        activeBackground.current &&
+            (activeBackground.current.onclick = (e) => { e.target == activeBackground.current && setActiveProject({}) }) &&
+            activeBackground.current.focus()
 
-    }, [])
+    }, [activeProject])
 
     return (
         <div className="h-full rounded-xl overflow-hidden">
-            <div className="relative h-full overflow-y-hidden">
+            <div
+                className="relative h-full overflow-y-hidden"
+                ref={container}
+            >
                 <m.div
                     initial={{ x: '100%' }}
                     animate={{ x: '0' }}
@@ -52,18 +59,34 @@ export default function Projects() {
                 >
                     <div
                         ref={gallery}
-                        className='grid gap-12 p-4
-                        sm:flex sm:px-44'
+                        className='flex flex-col gap-3 p-4 w-full
+                        sm:flex-row sm:px-44 sm:w-auto sm:gap-12'
                     >
-                        {projects.map(project => (
-                            <Card key={project.id} project={project} setProject={setActiveProject} />
-                        ))}
+                        <Suspense>
+                            {projects.map(project => (
+                                <Card key={project.id} project={project} setProject={setActiveProject} />
+                            ))}
+                        </Suspense>
                     </div>
                 </m.div>
             </div>
 
             {activeProject.id !== undefined &&
-                <ActiveProject project={activeProject} setProject={setActiveProject} />
+                <m.div
+                    ref={activeBackground}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    exit={{ opacity: 0 }}
+                    onKeyDown={(e) => e.key === 'Escape' && setActiveProject({})}
+                    className="absolute top-0 left-0 bottom-0 right-0 bg-black/70 p-3 flex flex-col gap-3 z-20 select-none
+                    md:p-16 md:flex-row md:gap-12"
+                    tabIndex={0}
+                >
+                    <Suspense fallback={<Loading />}>
+                        <ActiveProject project={activeProject} setProject={setActiveProject} />
+                    </Suspense>
+                </m.div>
             }
         </div>
     )

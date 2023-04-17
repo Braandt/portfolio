@@ -25,7 +25,3 @@
 html {
     background: black;
 }
-
-canvas {
-    touch-action: none;
-}

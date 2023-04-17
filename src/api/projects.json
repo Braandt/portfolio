@@ -104,7 +104,8 @@
             "javascript",
             "react",
             "tailwind",
-            "next"
+            "next",
+            "threejs"
         ],
         "images": [
             "/images/portfolio/screen1.png",
