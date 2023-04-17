@@ -39,13 +39,13 @@ export default function App({ Component, pageProps, router }) {
 			const index = links.indexOf(page)
 			const direction = event.deltaY > 0 ? 1 : -1
 
-			// if (index === 0) {
-			// 	direction === 1 && push(links[index + direction].path)
-			// } else if (index === links.length - 1) {
-			// 	direction === -1 && push(links[index + direction].path)
-			// } else {
-			// 	push(links[index + direction].path)
-			// }
+			if (index === 0) {
+				direction === 1 && push(links[index + direction].path)
+			} else if (index === links.length - 1) {
+				direction === -1 && push(links[index + direction].path)
+			} else {
+				push(links[index + direction].path)
+			}
 
 		}
 
