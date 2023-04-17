@@ -1,6 +1,7 @@
 import Galaxy from '@/components/Galaxy'
 import { Canvas } from '@react-three/fiber'
 import { motion as m } from 'framer-motion'
+import { Suspense } from 'react'
 import { FaCss3, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
 
 export default function Home() {
@@ -15,16 +16,18 @@ export default function Home() {
 		>
 			<div className="relative h-full w-full">
 				<div className="absolute h-full w-full -z-10">
-					<Canvas
-						camera={{
-							fov: 45,
-							near: 0.1,
-							far: 50,
-							position: [0, 4, 6]
-						}}
-					>
-						<Galaxy />
-					</Canvas>
+					<Suspense>
+						<Canvas
+							camera={{
+								fov: 45,
+								near: 0.1,
+								far: 50,
+								position: [0, 4, 6]
+							}}
+						>
+							<Galaxy />
+						</Canvas>
+					</Suspense>
 				</div>
 				<div
 					className='h-full flex flex-col p-12
