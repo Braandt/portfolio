@@ -1,4 +1,4 @@
-import { OrbitControls } from "@react-three/drei"
+import { Float, OrbitControls } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { useEffect, useRef, useState } from "react"
 import * as THREE from 'three'
@@ -6,14 +6,16 @@ import * as THREE from 'three'
 export default function Galaxy() {
 
     const galaxy = useRef()
+    const mesh = useRef()
 
-    const [smooth, setSmooth] = useState(false)
+    const [mousePos, setMousePos] = useState()
+    const [offsetLeft, setOffsetLeft] = useState()
 
     const parameters = {
         count: 50000,
         size: 0.01,
         radius: 5,
-        branches: 5,
+        branches: 6,
         spin: 1,
         randomness: 0.2,
         randomnessPower: 2,
@@ -53,18 +55,17 @@ export default function Galaxy() {
     }
 
     useFrame((state, delta) => {
-        galaxy.current.rotation.y += delta * 0.05
+        galaxy.current.rotation.y += delta * 0.03
+        mousePos && (state.camera.position.x += (Math.PI * -mousePos.x * 0.2 - state.camera.position.x) * 0.05)
+        mousePos && (state.camera.position.y += (Math.PI * -mousePos.y * 0.5 - state.camera.position.y) * 0.05 + 0.15)
     })
 
     useEffect(() => {
 
-        const mesh = galaxy.current.parent
+        setOffsetLeft(2 * innerWidth / 1600)
 
         const handleMouseMove = (e) => {
-            const y = e.clientY / innerWidth
-            const x = e.clientX / innerHeight
-            mesh.rotation.x = Math.PI * -y * 0.05
-            mesh.rotation.y = Math.PI * x * 0.05
+            setMousePos({ x: e.clientX / innerHeight, y: e.clientY / innerWidth })
         }
 
         document.addEventListener('mousemove', (e) => handleMouseMove(e))
@@ -72,37 +73,41 @@ export default function Galaxy() {
         return () => {
             document.removeEventListener('mousemove', handleMouseMove)
         }
-    }, [smooth])
+    }, [])
 
+    console.log(offsetLeft);
 
     return (
         <>
             <OrbitControls enableZoom={false} />
-            <mesh
-                position={[-2, 0, 0]}
-                rotation={[-Math.PI * 0.1, 0, -Math.PI * 0.1]}
-            >
-                <points
-                    ref={galaxy}>
-                    <bufferGeometry attach="geometry">
-                        <bufferAttribute
-                            attach="attributes-position"
-                            count={positions.length / 3}
-                            array={positions}
-                            itemSize={3}
-                            usage={THREE.DynamicDrawUsage}
-                        />
-                        <bufferAttribute
-                            attach="attributes-color"
-                            count={colors.length / 3}
-                            array={colors}
-                            itemSize={3}
-                            usage={THREE.DynamicDrawUsage}
-                        />
-                    </bufferGeometry>
-                    <pointsMaterial attach="material" vertexColors size={parameters.size} sizeAttenuation={false} />
-                </points>
-            </mesh>
+            <Float speed={1.5} scale={1.5} floatIntensity={1.5} rotationIntensity={0.5}>
+                <mesh
+                    ref={mesh}
+                    position={[-offsetLeft, 0, 0]}
+                    rotation={[-Math.PI * 0.1, 0, -Math.PI * 0.1]}
+                >
+                    <points
+                        ref={galaxy}>
+                        <bufferGeometry attach="geometry">
+                            <bufferAttribute
+                                attach="attributes-position"
+                                count={positions.length / 3}
+                                array={positions}
+                                itemSize={3}
+                                usage={THREE.DynamicDrawUsage}
+                            />
+                            <bufferAttribute
+                                attach="attributes-color"
+                                count={colors.length / 3}
+                                array={colors}
+                                itemSize={3}
+                                usage={THREE.DynamicDrawUsage}
+                            />
+                        </bufferGeometry>
+                        <pointsMaterial attach="material" vertexColors size={parameters.size} depthWrite={false} sizeAttenuation={true} blending={THREE.AdditiveBlending} />
+                    </points>
+                </mesh>
+            </Float>
         </>
     )
 }
