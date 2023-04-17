@@ -75,8 +75,6 @@ export default function Galaxy() {
         }
     }, [])
 
-    console.log(offsetLeft);
-
     return (
         <>
             <OrbitControls enableZoom={false} />
