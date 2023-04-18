@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import { Rubik, Alef, Fira_Sans } from 'next/font/google'
 import { AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import Navbar from '@/components/Navbar.jsx'
 import { useRouter } from 'next/router'
@@ -32,6 +32,7 @@ const links = [
 export default function App({ Component, pageProps, router }) {
 
 	const { push } = useRouter()
+	const [scrollCounter, setScrollCounter] = useState(0)
 
 	useEffect(() => {
 		const onScroll = (event) => {
@@ -47,12 +48,16 @@ export default function App({ Component, pageProps, router }) {
 				push(links[index + direction].path)
 			}
 
+			window.removeEventListener('wheel', onScroll)
+			setTimeout(() => {
+				window.addEventListener('wheel', onScroll)
+			}, 2000)
 		}
 
-		window.addEventListener('wheel', onScroll);
+		window.addEventListener('wheel', onScroll)
 
 		return () => {
-			window.removeEventListener('wheel', onScroll);
+			window.removeEventListener('wheel', onScroll)
 		}
 	}, []);
 

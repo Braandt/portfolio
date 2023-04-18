@@ -1,4 +1,4 @@
-import { FaCss3, FaHtml5, FaJs, FaReact } from "react-icons/fa";
+import { FaCss3, FaGit, FaGithub, FaHtml5, FaJs, FaReact } from "react-icons/fa";
 import { SiTailwindcss, SiThreedotjs } from 'react-icons/si'
 import { TbBrandNextjs } from 'react-icons/tb'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
@@ -98,14 +98,26 @@ export default function ActiveProject({ project, setProject }) {
                         {projectIcons}
                     </div>
                     <hr className="my-4" />
-                    <a
-                        className="bg-white text-center text-gray-900 rounded-full px-4 py-2 text-sm font-bold
+                    <div className="w-full flex items-center">
+                        <a
+                            className="bg-white text-center text-gray-900 w-1/2 rounded-s-full px-4 py-2 text-sm font-bold
                             md:text-base"
-                        href={project.link}
-                        target="_blank"
-                    >
-                        OPEN 🌐
-                    </a>
+                            href={project.link}
+                            target="_blank"
+                        >
+                            OPEN 🌐
+                        </a>
+                        <div className="h-4/6 outline outline-1 outline-gray-400"></div>
+                        <a
+                            className="bg-white text-gray-900 w-1/2 rounded-e-full border-l px-4 py-2 text-sm font-bold flex items-center gap-2 justify-center overflow-hidden overflow-ellipsis whitespace-nowrap
+                            md:text-base"
+                            href={project.repository}
+                            target="_blank"
+                        >
+                            Git Repository
+                            <FaGithub className="min-w-fit" />
+                        </a>
+                    </div>
                 </div>
 
                 <div

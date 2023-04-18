@@ -78,7 +78,9 @@ export default function Galaxy() {
         }
 
         const handleMouseEnter = () => {
-            setMouseOver(true)
+            setTimeout(() => {
+                setMouseOver(true)
+            }, 2000)
         }
 
         const handleMouseLeave = () => {
@@ -92,9 +94,10 @@ export default function Galaxy() {
 
         return () => {
             document.removeEventListener('mousemove', handleMouseMove)
-            document.removeEventListener('mouseover', handleMouseEnter)
+            document.removeEventListener('mouseenter', handleMouseEnter)
             document.removeEventListener('mouseover', handleMouseEnter)
             document.removeEventListener('mouseleave', handleMouseLeave)
+            setMouseOver(false)
         }
     }, [])
 
