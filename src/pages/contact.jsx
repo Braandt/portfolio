@@ -12,7 +12,7 @@ export default function Contact() {
         { path: 'mailto: leoobrandt@hotmail.com', label: 'Email', icon: <FaEnvelope className={iconClasses} /> },
         { path: 'https://www.linkedin.com/in/brandtl/', label: 'LinkedIn', icon: <FaLinkedin className={iconClasses} /> },
         { path: 'https://github.com/Braandt', label: 'GitHub', icon: <FaGithub className={iconClasses} /> },
-        { path: './Resume - Leonardo Brandt.pdf', label: 'Resume', icon: <FaFile className={iconClasses} /> }
+        { path: 'https://leobrandtresume.vercel.app/', label: 'Resume', icon: <FaFile className={iconClasses} /> }
     ]
 
     function handleHover(e) {
