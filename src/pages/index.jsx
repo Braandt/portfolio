@@ -3,12 +3,21 @@ import { Suspense, lazy } from 'react'
 
 const Canvas = lazy(() => import('@react-three/fiber').then(module => ({ default: module.Canvas })))
 
-const icons = ['FaCss3', 'FaHtml5', 'FaJs', 'FaReact'].map(componentName =>
-	lazy(() => import(`react-icons/fa`).then(module => ({ default: module[componentName] })))
-);
-
+const FaCss3 = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaCss3 })))
+const FaHtml5 = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaHtml5 })))
+const FaJs = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaJs })))
+const FaReact = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaReact })))
 const SiThreedotjs = lazy(() => import('react-icons/si').then(module => ({ default: module.SiThreedotjs })))
 const TbBrandNextjs = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbBrandNextjs })))
+
+const icons = [
+	{ name: 'CSS', icon: FaCss3 },
+	{ name: 'HTML', icon: FaHtml5 },
+	{ name: 'JavaScript', icon: FaJs },
+	{ name: 'React', icon: FaReact },
+	{ name: 'Three.js', icon: SiThreedotjs },
+	{ name: 'Next.js', icon: TbBrandNextjs }
+]
 
 const Galaxy = lazy(() => import('@/components/Galaxy'))
 
@@ -61,10 +70,11 @@ export default function Home() {
 					>
 						<Suspense>
 							{icons.map((Icon, index) => (
-								<Icon key={index} />
+								<div className='relative group flex justify-center'>
+									<Icon.icon key={index} className='hover:scale-150 origin-bottom transition-all' />
+									<h1 className='absolute -top-10 opacity-0 group-hover:opacity-100 transition-all'>{Icon.name}</h1>
+								</div>
 							))}
-							<SiThreedotjs />
-							<TbBrandNextjs />
 						</Suspense>
 					</div>
 				</div>

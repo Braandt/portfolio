@@ -52,8 +52,8 @@ export default function Projects() {
                     animate={{ x: '0' }}
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     exit={{ opacity: 0 }}
-                    className="absolute flex top-16 h-[90%] left-0 w-full select-none overflow-y-hidden overflow-x-scroll
-                    sm:h-[75%] sm:top-24
+                    className="absolute flex top-16 h-[90%] left-0 w-full select-none overflow-x-scroll
+                    sm:h-[75%] sm:top-24 sm:overflow-y-hidden
                     md:h-[80%] md:top-32"
                     tabIndex={1}
                 >
