@@ -1,5 +1,5 @@
 import { motion as m } from 'framer-motion'
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, startTransition, useEffect, useState } from 'react'
 
 const Canvas = lazy(() => import('@react-three/fiber').then(module => ({ default: module.Canvas })))
 
@@ -8,20 +8,26 @@ const FaHtml5 = lazy(() => import('react-icons/fa').then(module => ({ default: m
 const FaJs = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaJs })))
 const FaReact = lazy(() => import('react-icons/fa').then(module => ({ default: module.FaReact })))
 const SiThreedotjs = lazy(() => import('react-icons/si').then(module => ({ default: module.SiThreedotjs })))
-const TbBrandNextjs = lazy(() => import('react-icons/tb').then(module => ({ default: module.TbBrandNextjs })))
-
-const icons = [
-	{ name: 'CSS', icon: FaCss3 },
-	{ name: 'HTML', icon: FaHtml5 },
-	{ name: 'JavaScript', icon: FaJs },
-	{ name: 'React', icon: FaReact },
-	{ name: 'Three.js', icon: SiThreedotjs },
-	{ name: 'Next.js', icon: TbBrandNextjs }
-]
 
 const Galaxy = lazy(() => import('@/components/Galaxy'))
 
 export default function Home() {
+
+	const [icons, setIcons] = useState([])
+
+	useEffect(() => {
+		startTransition(
+			() => setIcons([
+				{ name: 'CSS', icon: FaCss3 },
+				{ name: 'HTML', icon: FaHtml5 },
+				{ name: 'JavaScript', icon: FaJs },
+				{ name: 'React', icon: FaReact },
+				{ name: 'Three.js', icon: SiThreedotjs }
+			])
+		)
+	}, [])
+
+	console.log(icons);
 
 	return (
 		<m.div
@@ -69,18 +75,23 @@ export default function Home() {
 					sm:justify-end'
 					>
 						<Suspense>
-							{icons.map((Icon, index) => (
-								<div key={index} className='relative group flex justify-center'>
+							{icons.map(Icon => {
+								return <div key={Icon} className='relative group flex justify-center' >
 									<Icon.icon className='hover:scale-150 origin-bottom transition-all' />
-									<h1 className='absolute -top-10 opacity-0 group-hover:opacity-100 transition-all'>{Icon.name}</h1>
+									<h1
+										className='absolute bg-gray-800 p-2 -top-14 rounded-lg opacity-0 transition-all text-sm
+										group-hover:opacity-100'
+									>
+										{Icon.name}
+									</h1>
 								</div>
-							))}
+							})}
 						</Suspense>
 					</div>
 				</div>
 
-			</div>
-		</m.div>
+			</div >
+		</m.div >
 	)
 }
 
