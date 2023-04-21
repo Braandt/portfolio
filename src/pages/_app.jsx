@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import { Analytics } from '@vercel/analytics/react'
 import { Rubik, Alef, Fira_Sans } from 'next/font/google'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'

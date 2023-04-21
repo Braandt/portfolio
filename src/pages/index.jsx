@@ -70,8 +70,8 @@ export default function Home() {
 					>
 						<Suspense>
 							{icons.map((Icon, index) => (
-								<div className='relative group flex justify-center'>
-									<Icon.icon key={index} className='hover:scale-150 origin-bottom transition-all' />
+								<div key={index} className='relative group flex justify-center'>
+									<Icon.icon className='hover:scale-150 origin-bottom transition-all' />
 									<h1 className='absolute -top-10 opacity-0 group-hover:opacity-100 transition-all'>{Icon.name}</h1>
 								</div>
 							))}
