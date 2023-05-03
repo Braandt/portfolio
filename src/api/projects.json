@@ -3,7 +3,7 @@
         "id": 1,
         "title": "Inclua - Recursos Educacionais",
         "subtitle": "Institutional webpage",
-        "description": "Webpage for a brazilian company commited to developing innovative products and solutions in the Universal Design methodology, with the aim of promoting inclusive learning for people with or without disabilities",
+        "description": "Webpage for a Brazilian company committed to developing innovative products and solutions in the Universal Design methodology to promote inclusive learning for people with and without disabilities",
         "repository": "https://github.com/Braandt/Inclua-Recursos-Educacionais",
         "link": "https://inclua-webpage.vercel.app/",
         "technologies": [
@@ -25,7 +25,7 @@
         "id": 2,
         "title": "SpaceX Clone",
         "subtitle": "Clone of the SpaceX website",
-        "description": "Clone of version of 2020 of the SpaceX website, multipages, responsive and just for fun and practice. \n Made this project using just html, css and plain JavaScript",
+        "description": "Clone of the 2020 version of the SpaceX website, multi-pages, responsive, and just for fun and practice. \n Made this project using just HTML, CSS, and plain JavaScript",
         "repository": "https://github.com/Braandt/SpaceX-Clone",
         "link": "https://braandt.github.io/SpaceX-Clone",
         "technologies": [
@@ -44,7 +44,7 @@
         "id": 3,
         "title": "Etable",
         "subtitle": "Interactive 3D Experience",
-        "description": "A work in progress of a companies innovative project. Everything was modeled in three.js.\n I'm currently working on lightning, interactivity and animations of the product",
+        "description": "A work in progress of a company's innovative project. Everything was modeled in three.js.\n I'm currently working on lightning, interactivity, and animations of the product",
         "repository": "https://github.com/Braandt/e-table",
         "link": "https://braandt.github.io/e-table/dist/",
         "technologies": [
@@ -103,7 +103,7 @@
         "id": 6,
         "title": "This Site",
         "subtitle": "Personal portfolio",
-        "description": "This is the first personal portfolio that I made to show my work and try to get hired as a frontend developer. \n Hope you liked it so far, I keep updating it constantly and fixing ocasional bugs that appear. \n Thank you for cheking my projects and keep scrolling to get to know I little more about me 😉",
+        "description": "This is the first personal portfolio that I made to show my work and try to get hired as a front-end developer. I hope you have liked it so far, I keep updating it constantly and fixing occasional bugs that appear. Thank you for checking my projects and keep scrolling to get to know a little more about me 😉",
         "repository": "https://github.com/Braandt/portfolio",
         "link": "#",
         "technologies": [
